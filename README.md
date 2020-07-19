@@ -12,6 +12,23 @@ This libary will run collections in the folder *Collections*.
      'done': function() { console.log('done');}
  }
 ```
+## Add Collection in Folder
+
+Export a Collection from Postman and add it to the folder *Collection*
+
+## Add script 
+
+Specify the folder in the script
+
+```javascript
+[...]
+  "scripts": {
+    "newman:version": "newman --version",
+    "collections:sample": "node index.js  ./collections/sample-collection"
+  }
+  [...]
+```
+   
 
 ## Execute the Collections
 

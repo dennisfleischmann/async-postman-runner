@@ -1,7 +1,12 @@
 const fs = require('fs');
-const FOLDER = './collections';
-const files = fs.readdirSync(FOLDER); 
-const runCollectionAsync = require('./utils');
+const runCollectionAsync = require('./runCollectionsAsync');
+
+const FOLDER = process.argv[2];
+
+console.log(FOLDER);
+
+const collections = fs.readdirSync(FOLDER); 
+
 
 /**
  * Newman does not allow passing collection files Feature request pending. Allows to pass a list of files/collections 
@@ -18,16 +23,16 @@ const runCollectionAsync = require('./utils');
 
 const run  = () => {
     try{
-        files.forEach(async (file) => {       
+        collections.forEach(async (cFile) => {       
             let result = await runCollectionAsync({
-                collection: `${FOLDER}/${file}`,
+                collection: `${FOLDER}/${cFile}`,
                 conifg: null,
                 events
             }); 
-            console.log(`Collection ${FOLDER}/${file} executed`);
+            console.log(`Collection ${FOLDER}/${cFile} executed`);
         });
     } catch (error) {
-        console.log(`Error while executing collection ${FOLDER}/${file}`, error);
+        console.log(`Error while executing collection ${FOLDER}/${cFile}`, error);
     }
 }
 
