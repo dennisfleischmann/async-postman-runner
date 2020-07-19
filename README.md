@@ -33,7 +33,7 @@ Specify the folder in the script
 ## Execute the Collections
 
 ```javascript
-npm run collections
+npm run collections:sample
 ```
 
 
