@@ -1,8 +1,11 @@
 const newman = require('newman'); // require newman in your project
 
-const  runCollectionAsync = ({collection, customConfig, events})  => new Promise((resolve,reject) =>  {
+const  runCollectionAsync = ({
+    collection,
+    customConfig,
+    events
+})  => new Promise((resolve,reject) =>  {
 
-    console.log('events', events);
     const defaultConfig = {
         collection,
         reporters: ['cli', 'html'],
@@ -13,7 +16,6 @@ const  runCollectionAsync = ({collection, customConfig, events})  => new Promise
     if(customConfig) {
         config = customConfig;
     }
-    console.log('repare');
     let nm = newman.run(config, function (err) {
         if (err) { reject(err) }
         resolve('collection run complete!');
@@ -22,8 +24,6 @@ const  runCollectionAsync = ({collection, customConfig, events})  => new Promise
     Object.keys(events).forEach( key => {
         nm.on(key, events[key]);
     });
-
 });
-
 
 module.exports = runCollectionAsync;
