@@ -42,3 +42,36 @@ console	| Every time a console function is called from within any script, this e
 exception	| hen any asynchronous error happen in scripts this event is triggered
 beforeDone	| An event that is triggered prior to the completion of the run
 done	| This event is emitted when a collection run has completed, with or without errors
+
+
+# Object runCollectionAsync
+
+```javascript
+const  runCollectionAsync = ({
+    collection,
+    customConfig,
+    events
+})  => new Promise((resolve,reject) =>  {
+
+    const defaultConfig = {
+        collection,
+        reporters: ['cli', 'html'],
+    };
+
+    let config = defaultConfig;
+
+    if(customConfig) {
+        config = customConfig;
+    }
+    let nm = newman.run(config, function (err) {
+        if (err) { reject(err) }
+        resolve('collection run complete!');
+    });
+
+    Object.keys(events).forEach( key => {
+        nm.on(key, events[key]);
+    });
+});
+
+module.exports = runCollectionAsync;
+```
