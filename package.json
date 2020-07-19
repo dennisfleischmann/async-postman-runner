@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "newman": "^5.1.2",
+    "newman-reporter-html": "^1.0.5"
+  },
+  "scripts": {
+    "newman:version": "newman --version"
+  }
+}
