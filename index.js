@@ -8,6 +8,9 @@ const runCollectionAsync = require('./utils');
  * https://github.com/postmanlabs/newman/issues/2117
  */
 
+ /**
+  * Find all possible lifecylce events in README.md
+  */
  const events = {
      'start': function() { console.log('start');},
      'done': function() { console.log('done');}
@@ -16,8 +19,12 @@ const runCollectionAsync = require('./utils');
 const run  = () => {
     try{
         files.forEach(async (file) => {       
-            let result = await runCollectionAsync({collection: `${FOLDER}/${file}`, conifg: null, events}); 
-            console.log(`Successful executed collection ${FOLDER}/${file}`, result);
+            let result = await runCollectionAsync({
+                collection: `${FOLDER}/${file}`,
+                conifg: null,
+                events
+            }); 
+            console.log(`Collection ${FOLDER}/${file} executed`);
         });
     } catch (error) {
         console.log(`Error while executing collection ${FOLDER}/${file}`, error);
