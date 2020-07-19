@@ -60,6 +60,27 @@ exception	| hen any asynchronous error happen in scripts this event is triggered
 beforeDone	| An event that is triggered prior to the completion of the run
 done	| This event is emitted when a collection run has completed, with or without errors
 
+# Run collections Async
+
+```javascript
+
+const run  = () => {
+    try{
+        collections.forEach(async (cFile) => {       
+            let result = await runCollectionAsync({
+                collection: `${FOLDER}/${cFile}`,
+                conifg: null,
+                events
+            }); 
+            console.log(`Collection ${FOLDER}/${cFile} executed`);
+        });
+    } catch (error) {
+        console.log(`Error while executing collection ${FOLDER}/${cFile}`, error);
+    }
+}
+
+run();
+```
 
 # Object runCollectionAsync
 
