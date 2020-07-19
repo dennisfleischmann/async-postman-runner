@@ -1,4 +1,26 @@
-#  Events
+# Newman Async Execution Runner
+
+This libary will run collections in the folder `Collections`.
+
+# Usage
+
+## Define Custom Events
+
+```javascript
+ const events = {
+     'start': function() { console.log('start');},
+     'done': function() { console.log('done');}
+ }
+```
+
+## Execute the Collections
+
+```javascript
+npm run collections
+```
+
+
+#  Newman Collections' Lifecycle Events
 
 Event | Description
 ------------ | -------------

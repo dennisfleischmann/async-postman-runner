@@ -4,6 +4,7 @@
     "newman-reporter-html": "^1.0.5"
   },
   "scripts": {
-    "newman:version": "newman --version"
+    "newman:version": "newman --version",
+    "collections": "node index.js"
   }
 }
