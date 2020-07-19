@@ -13,7 +13,7 @@ const executeAsync = require('./utils');
 const run  = () => {
     try{
         files.forEach(async (file) => {       
-            let result = await executeAsync(`${FOLDER}/${file}`); 
+            let result = await executeAsync({collection: `${FOLDER}/${file}`}); 
             console.log(`Successful executed collection ${FOLDER}/${file}`)
         });
     } catch (e) {
