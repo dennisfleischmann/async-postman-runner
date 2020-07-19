@@ -1,6 +1,6 @@
 # Newman Async Execution Runner
 
-This libary will run collections in the folder `Collections`.
+This libary will run collections in the folder *Collections*.
 
 # Usage
 
