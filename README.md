@@ -20,7 +20,7 @@ npm run collections
 ```
 
 
-#  Newman Collections' Lifecycle Events
+#  Newman *Collections* Lifecycle Events
 
 Event | Description
 ------------ | -------------
