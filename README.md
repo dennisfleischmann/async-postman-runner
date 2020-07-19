@@ -22,11 +22,13 @@ Specify the folder in the script
 
 ```javascript
 [...]
+
   "scripts": {
     "newman:version": "newman --version",
     "collections:sample": "node index.js  ./collections/sample-collection"
   }
-  [...]
+  
+[...]
 ```
    
 
